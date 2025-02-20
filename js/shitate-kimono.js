@@ -53,8 +53,16 @@ const items = [
 const preprocessingOptions = [
   new Preprocessing("湯のし（三丈もの）", 1100),
   new Preprocessing("湯のし（四丈もの）", 1320),
+  new Preprocessing("湯のし(絞り正絹、絞り浴衣)", 1650),
+  new Preprocessing("解き湯のし(仮絵羽)", 4950),
+  new Preprocessing("解き湯のし(絞り仮絵羽)", 5775),
+  new Preprocessing("湯通し(三丈もの)紬", 4950),
+  new Preprocessing("湯通し(疋)紬", 9900),
+  new Preprocessing("上地入れ(三丈もの)結城など", 7425),
+  new Preprocessing("上地入れ(疋)結城など", 14850),
+  new Preprocessing("藍止め(絞り浴衣)", 4950),
+  new Preprocessing("藍止め(通常)", 5775)
 ];
-
 // 付属品データ
 const accessories = [
     { name: '八掛（精華）', price: 9900 },
