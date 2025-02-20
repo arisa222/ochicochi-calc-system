@@ -65,22 +65,22 @@ const preprocessingOptions = [
 ];
 // 付属品データ
 const accessories = [
-    { name: '八掛（精華）', price: 9900 },
-    { name: '八掛（駒）', price: 9900 },
-    { name: '胴裏（正絹）', price: 9900 },
-    { name: '振袖胴裏', price: 14300 },
-    { name: '片裏', price: 12100 },
-    { name: '背伏（正絹）', price: 770 },
-    { name: '背伏（ポリ）', price: 660 },
-    { name: '衣紋抜き', price: 990 },
-    { name: '居敷当（着物）', price: 2750 },
-    { name: '居敷当（襦袢）', price: 2420 },
-    { name: '衿裏（正絹）', price: 2200 },
-    { name: '絽衿裏（正絹）', price: 2750 },
-    { name: '衿裏（ポリ）', price: 550 },
-    { name: '絽衿裏（ポリ）', price: 1100 },
-    { name: '台衿（衿芯）', price: 660 },
-  ];
+  { name: '八掛（精華）', price: 9900 },
+  { name: '八掛（駒）', price: 9900 },
+  { name: '胴裏（正絹）', price: 9900 },
+  { name: '振袖胴裏', price: 14300 },
+  { name: '肩裏', price: 12100 },
+  { name: '背伏（正絹）', price: 770 },
+  { name: '背伏（ポリ）', price: 660 },
+  { name: '衣紋抜き', price: 990 },
+  { name: '居敷当（着物）', price: 2750 },
+  { name: '居敷当（襦袢）', price: 2420 },
+  { name: '衿裏（正絹）', price: 2200 },
+  { name: '絽衿裏（正絹）', price: 2750 },
+  { name: '衿裏（ポリ）', price: 550 },
+  { name: '絽衿裏（ポリ）', price: 1100 },
+  { name: '台衿（衿芯）', price: 660 }
+];
 
 // 各種選択肢をセットアップする関数
 function populateSelectWithOptions(selectElement, options) {
