@@ -1,10 +1,11 @@
 
 // 商品クラス
 class Item {
-  constructor(name, domestic, overseas) {
+  constructor(name, domestic, overseas, overseasEnabled = true) {
     this.name = name;
     this.domestic = domestic;
     this.overseas = overseas;
+    this.overseasEnabled = overseasEnabled; // 追加
   }
 }
 
@@ -23,32 +24,34 @@ class Accessory {
     this.price = price;
   }
 }
+
 // 商品データの初期化
 const items = [
   new Item("留袖・色留袖(比翼付き)", 62700, 34100),
   new Item("留袖（訪問着仕立）", 55000, 27500),
   new Item("振袖", 56100, 30800),
   new Item("訪問着", 46200, 27500),
-  new Item("絞り訪問着", 52800, 0), // 国外はなし
+  new Item("絞り訪問着", 52800, 0, false), // overseasEnabled: false
   new Item("付下げ", 41800, 25300),
   new Item("色無地", 36300, 24200),
   new Item("小紋", 36300, 24200),
-  new Item("絞り小紋", 42900, 0), // 国外はなし
+  new Item("絞り小紋", 42900, 0, false), // overseasEnabled: false
   new Item("紬・大島", 41800, 24200),
   new Item("長襦袢", 22000, 15400),
-  new Item("絵羽長襦袢", 26400, 0), // 国外はなし
+  new Item("絵羽長襦袢", 26400, 0, false), // overseasEnabled: false
   new Item("長襦袢(振)", 23100, 16500),
   new Item("羽織(ロング丈も対応)", 38500, 25300),
-  new Item("総絞り羽織、絵羽羽織", 44550, 0), // 国外はなし
+  new Item("総絞り羽織、絵羽羽織", 44550, 0, false), // overseasEnabled: false
   new Item("道行コート(ロング丈も対応)", 38500, 25300),
   new Item("道中着(ロング丈も対応)", 38500, 25300),
   new Item("女性アンサンブル", 66000, 46200),
   new Item("男性アンサンブル", 71500, 49500),
   new Item("男襦袢", 23100, 15400),
   new Item("浴衣", 25000, 18200),
-  new Item("総絞り浴衣", 29700, 0), // 国外はなし
-  new Item("男袴（馬乗・行燈）", 46200, 0) // 国外はなし
+  new Item("総絞り浴衣", 29700, 0, false), // overseasEnabled: false
+  new Item("男袴（馬乗・行燈）", 46200, 0, false) // overseasEnabled: false
 ];
+
 // 前処理データの初期化
 const preprocessingOptions = [
   new Preprocessing("湯のし（三丈もの）", 1100),
@@ -92,6 +95,24 @@ function populateSelectWithOptions(selectElement, options) {
   });
 }
 
+// 国外発送の選択肢を動的に生成する関数
+function populateOriginOptions(item, originSelect) {
+  originSelect.innerHTML = '';
+  const origins = [
+    { value: 'domestic', label: '国内手縫い' },
+    { value: 'overseas', label: '海外手縫い' }
+  ];
+  origins.forEach(origin => {
+    if (origin.value === 'overseas' && !item.overseasEnabled) { // 修正
+      return;
+    }
+    const option = document.createElement('option');
+    option.value = origin.value;
+    option.textContent = origin.label;
+    originSelect.appendChild(option);
+  });
+}
+
 // 付属品の合計コストを計算する関数
 function calculateAccessoriesTotal() {
   const accessoriesSelects = document.querySelectorAll('.select-accessory');
@@ -129,6 +150,7 @@ function createEstimateHTML(item, preprocessingPrices, origin, accessoriesTotal)
     const estimateDiv = document.getElementById("estimate");
   
     const selectedItem = items[itemSelect.value];
+    populateOriginOptions(selectedItem, originSelect); // 修正
     const selectedOrigin = originSelect.value;
     const accessoriesTotal = calculateAccessoriesTotal();
   
