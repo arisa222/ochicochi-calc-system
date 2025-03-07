@@ -55,8 +55,8 @@ const items = [
 // 前処理データの初期化
 const preprocessingOptions = [
   new Preprocessing("湯のし（三丈もの）", 1100),
-  new Preprocessing("湯のし（四丈もの）振袖", 1320),
   new Preprocessing("湯のし（四丈もの）共八掛付着物", 1320),
+  new Preprocessing("湯のし（四丈もの）振袖襦袢", 1320),
   new Preprocessing("湯のし(絞り正絹、絞り浴衣)", 1650),
   new Preprocessing("解き湯のし(仮絵羽)", 4950),
   new Preprocessing("解き湯のし(絞り仮絵羽)", 5775),
