@@ -68,8 +68,8 @@ const preprocessingOptions = [
 ];
 // 付属品データ
 const accessories = [
-  { name: '八掛（精華）', price: 9900 },
-  { name: '八掛（駒）', price: 9900 },
+  { name: '八掛（精華）', price: 13200 },
+  { name: '八掛（駒）', price: 13200 },
   { name: '胴裏（正絹）', price: 9900 },
   { name: '振袖胴裏', price: 14300 },
   { name: '肩裏', price: 12100 },
